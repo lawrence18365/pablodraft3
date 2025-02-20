@@ -1,264 +1,2992 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAB'S FACILITY SERVICES | Premium Landscaping & Design</title>
-    
+    <title>PABS Facility Services</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     
     <style>
         :root {
-            --primary: #1A2F1C;
-            --secondary: #2C4A2F;
-            --accent: #D4B484;
-            --light: #F9F6F2;
-            --dark: #0A0F0B;
-            
-            --heading: 'Playfair Display', serif;
-            --body: 'Poppins', sans-serif;
+            --brand-green: #3c5f2f;
+            --header-green: #5E6A3E;
+            --pure-white: #FFFFFF;
+            --pure-black: #000000;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        .red-hat-display-<uniquifier> {
+            font-family: "Red Hat Display", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+        .body {
+            font-family: "Red Hat Display", serif;
         }
 
-        body {
-            font-family: var(--body);
-            color: var(--dark);
-            background: var(--light);
-            line-height: 1.6;
-        }
 
-        .container {
-            width: 100%;
-            padding: 0 1rem;
-            margin: 0 auto;
-        }
-
-        /* Mobile-optimized Header Styles */
-        .header {
+        /* ===== LOADING SCREEN ===== */
+        .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            background: rgba(26, 47, 28, 0.9);
-            backdrop-filter: blur(10px);
-        }
-
-        .header-inner {
+            height: 100%;
+            background: var(--brand-green);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .logo img {
-            height: 40px;
-        }
-
-        .nav-toggle {
-            display: block;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 60px);
-            background: var(--primary);
-            display: none;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .nav-menu.active {
-            display: flex;
-        }
-
-        .nav-link {
-            color: var(--light);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        /* Mobile-optimized Hero Styles with Slideshow */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(rgba(26, 47, 28, 0.7), rgba(26, 47, 28, 0.7))
-        }
-        
-        
-        .slideshow {
-            width: 300%;
-            height: 100%;
-            display: flex;
-            animation: slideshow 15s infinite;
-        }
-        
-
-        .slide {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 47, 28, 0.8);
-        }
-
-        @keyframes slideshow {
-            0%, 33% { transform: translateX(0); }
-            33.01%, 66% { transform: translateX(-33.33%); }
-            66.01%, 100% { transform: translateX(-66.66%); }
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: var(--light);
-            width: 90%;
-            max-width: 600px;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 180, 132, 0.2);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .hero-title {
-            font-family: var(--heading);
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
             align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
         }
 
-        .cta-primary, .cta-secondary {
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            width: 100%;
-            max-width: 200px;
-            text-align: center;
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .cta-primary {
-            background: var(--accent);
-            color: var(--primary);
+        .loading-logo {
+            width: 200px;
+            height: auto;
+            animation: pulse 2s infinite;
         }
 
-        .cta-secondary {
-            background: transparent;
-            color: var(--light);
-            border: 2px solid var(--light);
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            margin: 20px auto;
+            border: 4px solid var(--pure-white);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
+
+        .loading-bar-container {
+            width: 300px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--pure-white);
+            border-radius: 5px;
+            transition: width 0.5s ease-out;
+        }
+
+        /* ===== ANIMATION KEYFRAMES ===== */
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+/* ===== TOP CONTACT BAR ===== */
+.contact-bar {
+    background: #3c5f2f;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--pure-white);
+    font-size: 1.1rem;
+}
+
+.contact-text {
+    margin-right: 20px;
+}
+
+.contact-group {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: none !important;
+    pointer-events: none;
+}
+
+
+
+
+.contact-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ===== NAVIGATION BAR ===== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    background: var(--pure-white);
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    animation: slideInRight 0.8s 0.2s ease-out backwards;
+    width: 100%; /* Full width to match header */
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--pure-black);
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--brand-green);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-logo {
+    width: auto;
+    height: 140px; /* Adjusted height */
+    transition: transform 0.3s ease;
+    animation: slideInLeft 0.8s 0.4s ease-out backwards;
+    max-width: 100%;
+}
+.hero-section {
+    position: relative;
+    height: 120vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url(https://i.postimg.cc/XvvvDzZV/i-Stock-1166961064-min.webp);
+    background-size: cover;
+    background-position: center;
+    margin-top: -270px;
+    padding-top: 220px;
+    
+}
+
+.content-wrapper {
+    width: 85%;
+    max-width: none;
+    margin-left: 15%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 40px;
+    line-height: 2.5;
+}
+
+/* Medium screens (tablets, smaller laptops) */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        width: 80%;
+        margin-left: 20%;
+        padding: 40px 30px;
+        line-height: 2.2;
+    }
+}
+
+/* Small screens (mobile devices in landscape) */
+@media (max-width: 768px) {
+    .content-wrapper {
+        width: 100%;
+        margin-left: 0;
+        padding: 30px 20px;
+        margin-top: 20px;
+        line-height: 2;
+    }
+}
+
+/* Extra small screens (mobile devices in portrait) */
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 20px 15px;
+        line-height: 1.8;
+    }
+}
+
+.service-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.service-subtitle {
+    font-size: 1.6rem;
+    font-weight: 500;
+    
+    text-align: left;
+}
+
+.service-description {
+    font-size: 1.2rem; /* Reduced from 1.6rem (25% smaller) */
+    line-height: 1.5;
+    margin: 0.8rem 0;
+    text-align: left;
+    font-weight: 400; /* Changed from 600 (normal weight) */
+}
+.cta-main {
+    /* Button dimensions and positioning */
+    width: auto;
+    min-width: 380px;
+    padding: 20px 50px;
+    margin: 6% 0 2rem -400px;
+    margin-right: 95%;
+    position: relative;
+    left: 50%;
+    
+    /* Visual styling */
+    background: #3c5f2f;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    
+    /* Typography */
+    font-family: "Red Hat Display", serif;
+    font-weight: 800;
+    font-size: 1.3rem; /* Increased from 0.9rem */
+    text-transform: uppercase;
+    line-height: 1.3;
+    text-align: center;
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    /* Animation */
+    opacity: 0;
+    animation: scaleUp 0.8s 1.4s ease-out forwards;
+    transform: translateX(-50%);
+}
+
+/* Style for the second line of text (phone number) */
+.cta-main span {
+    font-size: 1.3rem; /* Increased from 0.85rem */
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+/* Hover effects */
+.cta-main:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-main:hover::before {
+    left: 100%;
+}
+        /* ===== MASCOT LOGO ===== */
+.brand-mascot {
+    position: absolute;
+    left: 0%;
+    bottom: 5%;
+    width: 220px;
+    z-index: 2;
+}
+.brand-mascot:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+        margin-top: 0;
+        padding-top: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    
+
+    
+    .service-description {
+        font-size: 1rem;
+        text-align: center;
+        margin: 1rem auto;
+    }
+
+    .brand-mascot {
+        display: none;
+    }
+
+    .cta-main {
+        margin: 1.5rem auto;
+    }
+}
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .contact-bar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 20px;
+                animation: none;
+            }
+
+            .contact-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                height: 60px;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-logo {
+                width: 140px;
+                position: static;
+                margin: 0 auto;
+            }
+            @media (max-width: 768px) {
+    /* Reset the hero section for mobile */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+                    url('https://i.postimg.cc/XvvvDzZV/i-Stock-1166961064-min.webp');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Reset content wrapper */
+    .content-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        
+       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: normal;
+    }
+
+    /* Style title for mobile */
+    .service-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-align: center;
+        margin: 0 0 15px 0;
+        max-width: 90%;
+        line-height: 1.3;
+        margin-bottom: 5%;
+    }
+    .service-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-weight: 800;
+    }
+
+    /* Style descriptions */
+    .service-description {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 10px auto;
+        max-width: 90%;
+        line-height: 1.4;
+        font-weight: 300;
+    }
+
+    /* Completely reset and restyle the button for mobile */
+    .cta-main {
+        width: 90%;
+        max-width: 320px;
+        margin: 20px auto;
+        padding: 15px 20px;
+        background: var(--brand-green);
+        border-radius: 25px;
+        position: static; /* Reset positioning */
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6%;
+    }
+
+    
+
+    /* Hide mascot */
+    .brand-mascot {
+        display: none;
+    }
+
+            .brand-mascot {
+                width: 160px;
+                margin-top: -120%;
+            }
+
+            
+
+            .cta-main {
+                width: 90%;
+                max-width: 280px;
+            }
+
+            .loading-bar-container {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .loading-logo {
+                width: 150px;
+            }
+        }
+
+        
+        @media (max-width: 768px) {
+    .contact-bar {
+        display: flex;
+        flex-direction: row; /* Change to row instead of column */
+        justify-content: space-between;
+        padding: 8px 15px;
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 8px;
+    }
+
+    .contact-group {
+        display: flex;
+        flex-direction: row; /* Keep items in a row */
+        gap: 15px;
+        flex-wrap: wrap; /* Allow wrapping within groups */
+    }
+
+    .contact-item {
+        font-size: 0.85rem; /* Slightly smaller font for mobile */
+        white-space: nowrap; /* Prevent text wrapping within items */
+        display: flex;
+        align-items: center;
+        gap: 6px; /* Reduce gap between icon and text */
+    }
+
+    .contact-item .contact-icon {
+        font-size: 14px; /* Smaller icons on mobile */
+    }
+    .brand-mascot {
+                display: none;
+            }
+
+    /* Hide email text on very small screens, show only icon */
+    @media (max-width: 480px) {
+        .contact-item.email-contact span {
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .contact-item .fa-clock,
+    .contact-item:has(.fa-clock) {
+        display: none;
+    }
+}
+.contact-email {
+    pointer-events: auto !important;
+}
+.contact-email a {
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+}
+a[href^="tel:"] {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.cta-main {
+    cursor: pointer;
+}
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Mobile-optimized Header -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.pabsfacilityservices.com.au/wp-content/uploads/2023/02/Home.png" alt="PAB'S FACILITY SERVICES">
-            </a>
-            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <img src="https://i.postimg.cc/Hk8mc178/pab-1.png" alt="PABS Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
         </div>
-    </header>
+    </div>
 
-    <!-- Mobile Navigation Menu -->
-    <nav class="nav-menu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#portfolio" class="nav-link">Portfolio</a>
-        <a href="#testimonials" class="nav-link">Testimonials</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#contact" class="nav-cta">Get Started</a>
+    <!-- Contact Information Bar -->
+<div class="contact-bar">
+  <div class="contact-text"></div>
+  <div class="contact-group">
+    <div class="contact-item">
+      <i class="fas fa-clock contact-icon"></i>
+      <span>8am to 6pm, Monday to Saturday</span>
+    </div>
+    <div class="contact-item phone-contact">
+  <i class="fas fa-phone-alt contact-icon"></i>
+  <a href="tel:+61450198894" style="text-decoration: none; color: inherit;">
+    0450 198 894
+  </a>
+</div>
+    <div class="contact-item contact-email">
+      <i class="fas fa-envelope contact-icon"></i>
+      <a href="mailto:pablo@pabsfacilityservices.com.au">
+        pablo@pabsfacilityservices.com.au
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!-- Navigation -->
+     <nav class="nav-container">
+
+        <img src="https://i.postimg.cc/mgmdsPrQ/Pabs-Letra-PNG-transparent.png" 
+
+             alt="PABS Logo" 
+
+             class="nav-logo">
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services-showcase">Services</a></li>
+            <li><a href="#reviews">Client Reviews</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+
     </nav>
 
-    <!-- Mobile-optimized Hero Section with Slideshow -->
-    <section id="home" class="hero">
-        <div class="slideshow">
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1920&q=80');"></div>
+    <!-- Main Content -->
+    <section class="hero-section">
+        <div class="content-wrapper">
+            <h1 class="service-title">
+                RESIDENTIAL, STRATA & COMMERCIAL GARDEN SERVICES
+            </h1>
+            
+            <h2 class="service-subtitle">
+                High Quality Results, Friendly Service
+            </h2>
+
+            
+
+            <p class="service-description">
+                Looking for professional, reliable garden and outdoor maintenance?
+            </p>
+
+            <p class="service-description">
+                Our team has more than 5 years' experience delivering high quality services
+for Sydney’s residential gardens, strata and commercial properties
+            </p>
+            <p class="service-description">
+                We offer a free site inspection before we quote, to ensure our service meets
+your expectations!
+            </p>
+
+           <button class="cta-main" type="button" onclick="window.location.href='tel:0450198894'">
+    BOOK A FREE SITE INSPECTION
+    <span>CALL 0450 198 894</span>
+</button>
+
         </div>
-        <div class="hero-content">
-            <div class="hero-badge">Sydney's Premier Landscaping Service</div>
-            <h1 class="hero-title">Transforming Spaces Into Natural Sanctuaries</h1>
-            <p class="hero-description">With over 5 years of expertise in creating and maintaining exceptional outdoor environments, we bring unparalleled quality and attention to detail to every project.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="cta-primary">Get a Free Quote</a>
-                <a href="#portfolio" class="cta-secondary">View Our Work</a>
+
+        <img src="https://i.postimg.cc/Hk8mc178/pab-1.png" 
+             alt="Brand Mascot" 
+             class="brand-mascot">
+    </section>
+    <section class="wwd-section">
+    <div class="wwd-inner">
+        <div class="wwd-left">
+            <div class="wwd-label">WHAT WE DO</div>
+            <h2 class="wwd-title">Our<br>Services</h2>
+        </div>
+        <div class="wwd-right">
+            <h3 class="wwd-subtitle">Excellent Maintenance<br> Year-Round</h3>
+            <p class="wwd-text">We keep your outdoor spaces beautiful and well-maintained, so you can relax and enjoy them. Our comprehensive garden and facility services ensure your home, strata, or commercial property always looks its best.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.wwd-section {
+    width: 100%;
+    max-width: 2880px;
+    margin: 0 auto;
+    padding: 4.5em 0em 4em 0em;
+    background: #fff;
+}
+
+.wwd-inner {
+    max-width: 2880px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 180px;
+    gap: 120px;
+}
+
+.wwd-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #222;
+    margin-bottom: 24px;
+}
+
+.wwd-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 60px;
+    line-height: 0.95;
+    font-weight: 500;
+    color: #222;
+    margin: 0;
+}
+
+.wwd-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: #222;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+.wwd-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 100%;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+    max-width: 600px;
+    text-align: center;
+    hyphens: auto; /* Optional for better word breaks */
+}
+
+@media (max-width: 1440px) {
+    .wwd-inner {
+        padding: 0 100px;
+        gap: 60px;
+    }
+
+    .wwd-subtitle {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wwd-section {
+        padding: 3em 0;
+    }
+
+    .wwd-inner {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        gap: 40px;
+    }
+
+    .wwd-title {
+        font-size: 50px;
+    }
+
+    .wwd-subtitle {
+        font-size: 28px;
+    }
+}
+</style>
+<!-- Services Showcase Section -->
+<section id="services-showcase" class="services-showcase">
+    <div class="services-grid">
+        <!-- Landscape Design -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>GARDENING</h3>
+                <div class="hover-fill"></div>
+                <img src="https://i.postimg.cc/vZybTrQ5/Whats-App-Image-2025-01-26-at-7-24-07-PM-1.jpg" alt="Landscape Design Services" />
             </div>
         </div>
-    </section>
+        <!-- Landscaping -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>GARDEN CLEAN UP</h3>
+                <div class="hover-fill"></div>
+                <img src="https://i.postimg.cc/RhjHv6by/Whats-App-Image-2025-01-26-at-7-22-25-PM-2.jpg" alt="Landscaping Services" />
+            </div>
+        </div>
+        <!-- Hardscaping -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>HEDGE TRIMMING</h3>
+                <div class="hover-fill"></div>
+                <img src="https://i.postimg.cc/VvStyB4X/Whats-App-Image-2025-01-26-at-7-22-27-PM-1.jpg" alt="Hardscaping Services" />
+            </div>
+        </div>
+        <!-- Pools -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>MULCHING</h3>
+                <div class="hover-fill"></div>
+                <img src="https://i.postimg.cc/sg35L4xX/Strata-2-Asquith-2-1.jpg" alt="Pool Services" />
+            </div>
+        </div>
+        <!-- Outdoor Living Spaces -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>TURFING</h3>
+                <div class="hover-fill"></div>
+                <img src="https://i.postimg.cc/fbZY3dTh/Whats-App-Image-2025-01-26-at-7-09-56-PM-4.jpg" alt="Outdoor Living Spaces" />
+            </div>
+        </div>
+        <!-- Irrigation -->
+        <div class="service-item">
+            <div class="service-content">
+                <h3>LAWN MOWING</h3>
+                <div class="hover-fill"></div>
+                <img src="https://images.unsplash.com/photo-1603147574210-c9b1dce42a43?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irrigation Services" />
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.services-showcase {
+    width: 100%;
+    background: #000;
+    padding: 0;
+    margin: 0;
+}
 
-    <script>
-        // Simple toggle for mobile navigation
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: #000;
+}
+
+.service-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.service-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.service-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.85);
+}
+
+.service-item:hover img {
+    transform: scale(1.15);
+}
+
+.service-content h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    z-index: 3;
+    margin: 0;
+    width: 100%;
+    padding: 0 20px;
+    transition: color 0.4s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hover-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(197 179 88 / 40%);
+    transform-origin: top left;
+    transform: scale(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.service-item:hover .hover-fill {
+    transform: scale(1);
+}
+
+.service-item:hover h3 {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+/* Before pseudo-element for the dark gradient overlay */
+.service-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0.4) 0%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-content h3 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+
+<!-- Testimonials Section -->
+<section id="reviews" class="testimonials-section">
+    <div class="testimonials-container">
+        <div class="section-header">
+            <span class="section-label">TESTIMONIALS</span>
+            <h2>What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Pablo and his team did a fantastic job of cleaning up our overgrown and unruly garden. His team all worked really hard and took direction well. Pablo is very easy to deal with, super friendly and knowledgable and has reasonable prices too. We will definitely be using Pab's Facility Services again in the future"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Tarryn</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Totally recommend! Pabs was very quick to respond, quick to quote and did a great job on my garden. He and his team also did an awesome job of cleaning up after themselves, which was a massive bonus. Excellent communication and will definitely use them again"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Kate</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Pablo is awesome. I've always been amazed by the incredible hedges across the road from my house. Then I found out Pablo was their Tree Guy. He came and worked on our hedges and he's just finishing pruning our 100 year old frangipani. He's quick, clean and a really great price. 5 stars all the way!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Paul</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Pablo always does a good job maintaining my garden. He's reliable, efficient and always friendly!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Yvonne</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Pablo and his team are great! Very efficient and neat gardeners, they leave everything clean behind them. They have good plants tips too. If you don't have enough green bins they also lend you big plastic bags and they take them next time they come. Their pressure washing service is also superb. I highly recommend them!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Alejandro</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Pab and the entire crew are professional, extremely knowledgeable and always provide stellar customer service. Fantastic work every time!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">John</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="testimonial-card">
+                    <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Review" class="google-logo">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "I can't speak highly enough of Pablo and his team! I have had him come and do maintenance in my garden now several times over the last couple of years. He is punctual, hard working, and a really nice person too."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-name">Swinder</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-nav">
+                <button class="nav-arrow prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonials-dots"></div>
+                <button class="nav-arrow next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="view-all-reviews">
+            <a href="https://maps.app.goo.gl/bsNgZwqr3auebEYU9" target="_blank" class="review-button">
+                See all our 50+ reviews on Google
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+.testimonials-section {
+    padding: 120px 0;
+    background: linear-gradient(180deg, var(--pure-white) 0%, #F4F6F0 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    background: linear-gradient(180deg, rgba(76, 88, 68, 0.03) 0%, rgba(76, 88, 68, 0) 100%);
+    pointer-events: none;
+}
+
+.testimonials-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.section-label {
+    font-family: "Red Hat Display", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-green);
+    display: block;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.section-header h2 {
+    font-family: "Red Hat Display", serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--header-green);
+    margin: 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+
+}
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--brand-green);
+    border-radius: 2px;
+}
+.gallery-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.gallery-label {
+    font-family: "Red Hat Display", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-green);
+    display: block;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+
+.gallery-header h2 {
+    font-family: "Red Hat Display", serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--header-green);
+    margin: 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    padding-top:3%;
+
+}
+.gallery-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--brand-green);
+    border-radius: 2px;
+}
+
+.testimonials-slider {
+    position: relative;
+    padding: 40px 0;
+    margin: 0 -40px;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    padding: 0 40px;
+}
+
+.testimonial-card {
+    min-width: calc(33.333% - 20px);
+    margin-right: 30px;
+    background: var(--pure-white);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(76, 88, 68, 0.15);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 490px;
+    border: 2px solid var(--brand-green);
+    position: relative;
+}
+
+.google-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 34px;
+    height: auto;
+    
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 60px -15px rgba(76, 88, 68, 0.25);
+}
+
+
+
+.testimonial-rating {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 4px;
+}
+
+.testimonial-rating i {
+    color: gold;
+    font-size: 20px;
+    margin-right: 2px;
+    -webkit-text-stroke: 1px var(--brand-green);
+    text-stroke: 1px var(--brand-green);
+    position: relative;
+}
+
+.testimonial-rating i::before {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-content {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2C3329;
+    margin: 0;
+    font-style: italic;
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.testimonial-content::before {
+    content: '"';
+    font-family: "Red Hat Display", serif;
+    font-size: 4rem;
+    line-height: 1;
+    position: absolute;
+    top: -20px;
+    left: -8px;
+    color: var(--brand-green);
+    opacity: 0.1;
+}
+
+.testimonial-author {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(76, 88, 68, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-name {
+    font-family: "Red Hat Display", serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--header-green);
+    margin-bottom: 4px;
+}
+
+.testimonials-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.nav-arrow {
+    width: 56px;
+    height: 56px;
+    border: none;
+    background: var(--pure-white);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 30px rgba(76, 88, 68, 0.15);
+    border: 2px solid var(--brand-green);
+}
+
+.nav-arrow i {
+    font-size: 20px;
+    color: var(--brand-green);
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(76, 88, 68, 0.2);
+    background: var(--brand-green);
+}
+
+.nav-arrow:hover i {
+    color: var(--pure-white);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.testimonials-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E1E5DC;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--brand-green);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: #C8CFBF;
+}
+
+.dot.active {
+    background: var(--brand-green);
+    transform: scale(1.2);
+}
+
+.dot.active::after {
+    opacity: 0.3;
+}
+
+.view-all-reviews {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.review-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--brand-green);
+    color: var(--pure-white);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--brand-green);
+}
+
+.review-button:hover {
+    background: transparent;
+    color: var(--brand-green);
+    transform: translateY(-2px);
+}
+
+.review-button i {
+    font-size: 0.875rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .testimonial-card {
+        min-width: calc(50% - 15px);
+        height: 400px;
+    }
+    
+    .section-header h2 {
+        font-size: 3rem;
+    }
+    .gallery-header h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 80px 0;
+    }
+
+    .testimonials-container {
+        padding: 0 20px;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+    }
+    .gallery-header {
+        margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    .gallery-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .testimonial-card {
+        min-width: calc(100% - 40px);
+        margin: 0 20px;
+        height: 380px;
+        padding: 30px;
+    }
+
+    .testimonial-content {
+        font-size: 1rem;
+    }
+
+    .nav-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .google-logo {
+        width: 20px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .review-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.testimonials-track');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const prevBtn = document.querySelector('.nav-arrow.prev');
+    const nextBtn = document.querySelector('.nav-arrow.next');
+    const dotsContainer = document.querySelector('.testimonials-dots');
+    
+    let currentIndex = 0;
+    let cardWidth;
+    let cardsPerView;
+
+    function updateLayout() {
+        const containerWidth = track.parentElement.clientWidth;
+        if (window.innerWidth <= 768) {
+            cardsPerView = 1;
+        } else if (window.innerWidth <= 1200) {
+            cardsPerView = 2;
+        } else {
+            cardsPerView = 3;
+        }
+        
+        cardWidth = (containerWidth - (40 * 2)) / cardsPerView;
+        track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+    }
+
+    function createDots() {
+        const totalDots = Math.ceil(cards.length / cardsPerView);
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
         });
-    </script>
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        updateDots();
+    }
+
+    function nextSlide() {
+        if (currentIndex >= Math.ceil(cards.length / cardsPerView) - 1) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+        goToSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        if (currentIndex <= 0) {
+            currentIndex = Math.ceil(cards.length / cardsPerView) - 1;
+        } else {
+            currentIndex--;
+        }
+        goToSlide(currentIndex);
+    }
+
+    // Initialize
+    updateLayout();
+    createDots();
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    window.addEventListener('resize', () => {
+        updateLayout();
+        createDots();
+    });
+
+    // Optional: Auto-advance slides
+    setInterval(nextSlide, 5000);
+});
+</script>
+<section class="gallery-header">
+    <h2>Gallery</h2>
+</section>
+<section id="gallery" class="locations-showcase">
+    <button class="locations-slider-arrow locations-slider-prev">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <div class="locations-container">
+        <div class="locations-track">
+            <div class="location-card">
+                <img src="https://i.postimg.cc/g09VGVzj/Untitled-design.png" alt="Northern Beaches">
+                <span class="location-label">SUTHERLAND SHIRES</span>
+            </div>
+            <div class="location-card">
+                <img src="https://i.postimg.cc/gJ7RB8TG/2.png" alt="Eastern Suburbs">
+                <span class="location-label">UPPER NORTH SHORE</span>
+            </div>
+            
+            <div class="location-card">
+                <img src="https://i.postimg.cc/rFgdh7Yq/6.png" alt="Inner West">
+                <span class="location-label">INNER WEST</span>
+            </div>
+            <div class="location-card">
+                <img src="https://i.postimg.cc/MKzMmz5s/7.png" alt="South Sydney">
+                <span class="location-label">SOUTH SYDNEY</span>
+            </div>
+            
+            <div class="location-card">
+                <img src="https://i.postimg.cc/h4wxL6Ps/Whats-App-Image-2025-01-26-at-7-22-25-PM.jpg" alt="Hills District">
+                <span class="location-label">NORTH SHORE</span>
+            </div>
+            
+            
+        </div>
+    </div>
+    <button class="locations-slider-arrow locations-slider-next">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</section>
+<style>
+.locations-showcase {
+    width: 100%;
+    height: 540px;
+    position: relative;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.locations-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.locations-track {
+    display: flex;
+    height: 100%;
+    gap: 10px;
+    transition: transform 0.5s ease;
+}
+
+.location-card {
+    min-width: 360px;
+    width: 360px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #000;
+}
+
+.location-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.location-card:hover img {
+    transform: scale(1.05);
+}
+
+.location-label {
+    position: absolute;
+    right: 30px;
+    top: 5%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: right center;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+.locations-slider-arrow {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 2px solid var(--brand-green);
+}
+
+.locations-slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.locations-slider-prev {
+    left: 20px;
+}
+
+.locations-slider-next {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .location-card {
+        min-width: 280px;
+        width: 280px;
+        height: 400px;
+    }
+
+    .locations-slider-arrow {
+        width: 32px;
+        height: 32px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.locations-track');
+    const cards = document.querySelectorAll('.location-card');
+    const prevBtn = document.querySelector('.locations-slider-prev');
+    const nextBtn = document.querySelector('.locations-slider-next');
+    
+    // Clone cards for infinite scroll
+    const cardCount = cards.length;
+    [...cards].forEach(card => {
+        const clone = card.cloneNode(true);
+        track.appendChild(clone);
+    });
+
+    let currentIndex = 0;
+
+    function calculateOffset() {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 10; // Match the gap from CSS
+        return cardWidth + gap; // Include gap in offset calculation
+    }
+
+    function updateSlidePosition() {
+        const offset = calculateOffset();
+        // Subtract initial gap to start flush with left edge
+        const position = -currentIndex * offset;
+        track.style.transform = `translateX(${position}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex <= 0) {
+            track.style.transition = 'none';
+            currentIndex = cardCount;
+            updateSlidePosition();
+            setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease';
+                currentIndex--;
+                updateSlidePosition();
+            }, 10);
+        } else {
+            currentIndex--;
+            updateSlidePosition();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex >= cardCount) {
+            track.style.transition = 'none';
+            currentIndex = 0;
+            updateSlidePosition();
+            setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease';
+                currentIndex++;
+                updateSlidePosition();
+            }, 10);
+        } else {
+            currentIndex++;
+            updateSlidePosition();
+        }
+    });
+
+    track.addEventListener('transitionend', () => {
+        if (currentIndex >= cardCount) {
+            track.style.transition = 'none';
+            currentIndex = 0;
+            updateSlidePosition();
+        }
+        if (currentIndex < 0) {
+            track.style.transition = 'none';
+            currentIndex = cardCount - 1;
+            updateSlidePosition();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        updateSlidePosition();
+    });
+
+    // Initial setup
+    updateSlidePosition();
+});</script>
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <div class="form-panel">
+            <form id="contactForm" class="contact-form">
+                <div class="form-header">
+                    <h3>Contact us</h3>
+                    <p>Complete the form below to arrange a free site inspection and quote</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" id="firstName" required placeholder=" ">
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="lastName" required placeholder=" ">
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" required placeholder=" ">
+                            <label for="phone">Phone Number</label>
+                        </div>
+                    </div>
+
+                    <div class="input-full">
+                        <div class="input-group">
+                            <input type="text" id="address" required placeholder=" ">
+                            <label for="address">Street Address</label>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" id="suburb" required placeholder=" ">
+                            <label for="suburb">Suburb</label>
+                        </div>
+                        <div class="input-group">
+                            <select id="propertyType" required>
+                                <option value="" disabled selected></option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="strata">Strata</option>
+                            </select>
+                            <label for="propertyType">Property Type</label>
+                        </div>
+                    </div>
+
+                    <div class="service-selection">
+                        <h4>Services Required</h4>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="services[]" value="garden">
+                                <span class="checkbox-custom"></span>
+                                <span>Garden Maintenance</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="services[]" value="lawn">
+                                <span class="checkbox-custom"></span>
+                                <span>Lawn Mowing</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="services[]" value="hedge">
+                                <span class="checkbox-custom"></span>
+                                <span>Hedge Trimming</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="services[]" value="cleanup">
+                                <span class="checkbox-custom"></span>
+                                <span>Garden Cleanup</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-full">
+                        <div class="input-group">
+                            <textarea id="message" required rows="4" placeholder=" "></textarea>
+                            <label for="message">Additional Details</label>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">
+                            <span>Submit</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11H4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --brand-green: #406343;
+}
+
+.contact-section {
+    padding: 120px 0;
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.form-panel {
+    background: white;
+    border-radius: 30px;
+    padding: 60px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 2px solid var(--brand-green);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-header h3 {
+    font-size: 2rem;
+    color: var(--brand-green);
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #666;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.input-full {
+    grid-column: 1 / -1;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 16px;
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    padding: 0 4px;
+}
+
+.input-group textarea ~ label {
+    top: 24px;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    background: white;
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 4px rgba(76,88,68,0.1);
+}
+
+.input-group input:focus ~ label,
+.input-group select:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group select:not(:placeholder-shown) ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 12px;
+    font-size: 0.85rem;
+    color: var(--brand-green);
+    background: white;
+}
+
+.service-selection {
+    margin-top: 20px;
+}
+
+.service-selection h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-item:hover {
+    background: rgba(76,88,68,0.05);
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--brand-green);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-item input {
+    display: none;
+}
+
+.checkbox-item input:checked + .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--brand-green);
+    border-radius: 3px;
+}
+
+.form-footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--brand-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(76,88,68,0.2);
+}
+
+.submit-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 1200px) {
+    .contact-container {
+        gap: 40px;
+    }
+
+    .form-panel {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .contact-container {
+        padding: 0 20px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-panel {
+        padding: 30px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalContent = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = `
+            <span class="btn-text">Sending...</span>
+            <span class="btn-icon">↻</span>
+        `;
+        
+        try {
+            // Add your form submission logic here
+            
+            // Success animation
+            submitBtn.innerHTML = `
+                <span class="btn-text">Message Sent!</span>
+                <span class="btn-icon">✓</span>
+            `;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalContent;
+                form.reset();
+                grecaptcha.reset();
+            }, 3000);
+            
+        } catch (error) {
+            submitBtn.innerHTML = `
+                <span class="btn-text">Error, Try Again</span>
+                <span class="btn-icon">⚠</span>
+            `;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalContent;
+            }, 3000);
+        }
+    });
+});
+</script>
+<style>
+    
+</style>
+<footer class="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About & Insurance Column -->
+                <div class="footer-column about-column">
+                    <h3>About Us</h3>
+                    <img src="https://i.postimg.cc/Hk8mc178/pab-1.png" alt="PABS Logo" class="footer-logo">
+                    <p class="company-description">
+                        Professional garden and facility services across Sydney's residential, strata and commercial properties.
+                    </p>
+                    <div class="certification-box">
+                        <img src="https://i.postimg.cc/x8pLsftP/SCA-NSW--Member-Logo-Black.jpg" alt="Strata Community Association Logo" class="sca-logo">
+                        <p class="insurance-note">
+                            We are fully insured, and committed to work health and safety.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Hours & Social Column -->
+                <div class="footer-column hours-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday</span><span>8a.m.-6p.m.</span></li>
+                        <li><span>Tuesday</span><span>8a.m.-6p.m.</span></li>
+                        <li><span>Wednesday</span><span>8a.m.-6p.m.</span></li>
+                        <li><span>Thursday</span><span>8a.m.-6p.m.</span></li>
+                        <li><span>Friday</span><span>8a.m.-6p.m.</span></li>
+                        <li><span>Saturday</span><span>8a.m.-6p.m.</span></li>
+                        <li class="closed"><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                    
+                    <div class="social-section">
+                        <h3>Follow Us</h3>
+                        <a href="https://www.instagram.com/pabsfacilityservices/" class="instagram-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                            <span>@pabsfacilityservices</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Map Column -->
+                <div class="footer-column map-column">
+                    <h3>Find Us</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424671.94255421066!2d151.20182075!3d-33.7412918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12af78d451b125%3A0x4bdab8b9f3d00deb!2sPab&#39;s%20Facility%20Services!5e0!3m2!1sen!2sca!4v1740025202686!5m2!1sen!2sca" 
+                        width="100%" height="270" style="border:0;" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <a href="#" class="quote-button">
+                        Get a Free Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Copyright Section -->
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="copyright">© 2025 Pab's Facility Services. All rights reserved.</p>
+            <div class="bottom-links">
+                <a href="#" data-modal-trigger="privacyModal">Privacy Policy</a>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+/* Base Styles */
+:root {
+    --brand-green: #3a5a40;
+    --brand-green-light: #588157;
+    --brand-green-dark: #2d4330;
+    --brand-accent: #a3bc78;
+    --light-text: #ffffff;
+    --muted-text: rgba(255, 255, 255, 0.7);
+    --dark-text: #333333;
+    --border-radius: 6px;
+}
+
+.footer {
+    color: var(--light-text);
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Main Footer */
+.footer-main {
+    background-color: var(--brand-green);
+    background-image: linear-gradient(to bottom, var(--brand-green), var(--brand-green-dark));
+    padding: 70px 0 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 50px;
+}
+
+/* Column Headings */
+.footer-column h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--light-text);
+    margin: 0 0 25px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.footer-column h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--brand-accent);
+}
+
+/* About Column */
+.footer-logo {
+    width: 140px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.company-description {
+    font-size: 0.95rem;
+    color: var(--muted-text);
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+.certification-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--brand-accent);
+}
+
+.sca-logo {
+    width: 130px;
+    background: white;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.insurance-note {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Hours Column */
+.hours-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+}
+
+.hours-list li.closed span:last-child {
+    color: #ff9e9e;
+}
+
+.social-section h3 {
+    margin-top: 0;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+.instagram-link svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+/* Map Column */
+.map-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+    display: block;
+}
+
+.quote-button {
+    display: block;
+    background-color: var(--brand-accent);
+    color: var(--dark-text);
+    text-align: center;
+    padding: 14px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: var(--brand-green-dark);
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    color: var(--muted-text);
+    margin: 0;
+}
+
+.bottom-links a {
+    color: var(--muted-text);
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.divider {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Styles */
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .map-column {
+        grid-column: span 2;
+        max-width: 100%;
+        justify-self: center;
+    }
+    
+    .container {
+        padding: 0 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-main {
+        padding: 40px 0 30px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .map-column {
+        grid-column: auto;
+        width: 100%;
+    }
+    
+    .footer-bottom .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .hours-list, 
+    .company-description {
+        max-width: 100%;
+    }
+    
+    .footer-logo, 
+    .sca-logo {
+        max-width: 160px;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .social-section {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .footer-column h3 {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .footer-column h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+    }
+    
+    .footer-logo, 
+    .sca-logo {
+        margin: 0 auto;
+        max-width: 140px;
+        display: block;
+    }
+    
+    .company-description, 
+    .certification-box {
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .social-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .instagram-link {
+        margin: 8px auto;
+    }
+    
+    .hour-item {
+        padding: 6px 0;
+        font-size: 0.9rem;
+    }
+    
+    .contact-item {
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .contact-item svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .bottom-content {
+        padding: 15px 15px;
+    }
+    
+    .copyright {
+        font-size: 0.8rem;
+    }
+    
+    .bottom-links a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Additional small screen optimization */
+@media (max-width: 360px) {
+    .footer-main {
+        padding: 30px 0 20px;
+    }
+    
+    .footer-grid {
+        gap: 25px;
+    }
+    
+    .footer-logo, 
+    .sca-logo {
+        max-width: 120px;
+    }
+    
+    .copyright,
+    .bottom-links a {
+        font-size: 0.75rem;
+    }
+}
+</style>
+<script>// This is the key part that needs refinement
+document.addEventListener('DOMContentLoaded', () => {
+    const aboutSection = document.getElementById('about');
+    const parallaxElements = aboutSection.querySelector('.parallax-elements');
+    
+    // Get section offset relative to document
+    const getSectionOffset = () => {
+        const rect = aboutSection.getBoundingClientRect();
+        return rect.top + window.scrollY;
+    };
+    
+    // Track section visibility
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Section is visible, enable parallax
+                window.addEventListener('scroll', handleParallax);
+            } else {
+                // Section not visible, disable parallax
+                window.removeEventListener('scroll', handleParallax);
+            }
+        });
+    }, {
+        threshold: 0,
+        rootMargin: '50px 0px'
+    });
+    
+    observer.observe(aboutSection);
+    
+    // Handle parallax based on section position
+    const handleParallax = () => {
+        const sectionOffset = getSectionOffset();
+        const scrollPosition = window.scrollY;
+        const relativeScroll = scrollPosition - sectionOffset;
+        
+        // Only apply parallax when section is in view
+        if (relativeScroll > -window.innerHeight && relativeScroll < window.innerHeight) {
+            const parallaxValue = relativeScroll * 0.4;
+            parallaxElements.style.transform = `translateY(${parallaxValue}px)`;
+        }
+    };
+});</script>
+    <script>
+    // Loading screen animation with slower progression
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingBar = document.getElementById('loadingBar');
+        let progress = 0;
+        
+        const interval = setInterval(() => {
+            // Reduced increment from 15 to 5 for slower progression
+            progress += 5;
+            loadingBar.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 800); // Increased from 500ms to 800ms
+                }, 800); // Increased from 500ms to 800ms
+            }
+        }, 70); // Increased from 30ms to 70ms between increments
+    });
+</script>
+    <!-- Privacy Policy Modal -->
+<div id="privacyModal" class="policy-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+        <div class="modal-header">
+            <h2>Privacy Policy</h2>
+            <button class="close-modal" data-modal="privacyModal">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-content">
+            <h3>Introduction</h3>
+            <p>At Pab’s Facility Serivces, we take your privacy seriously. This policy describes how we collect, use, and protect your personal information.</p>
+            
+            <h3>Information We Collect</h3>
+            <p>We collect information that you provide directly to us, including:</p>
+            <ul>
+                <li>Name and contact information</li>
+                <li>Property details</li>
+                <li>Service preferences</li>
+                <li>Communication history</li>
+            </ul>
+
+            <h3>How We Use Your Information</h3>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide and improve our services</li>
+                <li>Communicate with you about services</li>
+                <li>Send important updates and notifications</li>
+                <li>Process payments and transactions</li>
+            </ul>
+
+            <h3>Data Protection</h3>
+            <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, or destruction.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Terms of Service Modal -->
+
+<style>
+.policy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.policy-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    margin: auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.policy-modal.active .modal-container {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    background: var(--brand-green);
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
+
+.close-modal {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-modal svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.close-modal:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.close-modal:hover svg {
+    fill: #222;
+}
+
+.modal-content {
+    padding: 32px;
+    overflow-y: auto;
+    max-height: calc(90vh - 90px);
+}
+
+.modal-content h3 {
+    color: #222;
+    font-size: 1.25rem;
+    margin: 2em 0 1em;
+}
+
+.modal-content h3:first-child {
+    margin-top: 0;
+}
+
+.modal-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.modal-content ul {
+    color: #666;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.modal-content li {
+    margin-bottom: 0.5em;
+}
+
+@media (max-width: 768px) {
+    .modal-container {
+        width: 95%;
+    }
+
+    .modal-header {
+        padding: 20px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+    .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--brand-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0px;
+}
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Add this to your CSS */
+.contact-item.phone-contact {
+    pointer-events: auto !important;
+}
+
+.contact-item.phone-contact a {
+    cursor: pointer !important;
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Modal handlers
+    const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    const modals = document.querySelectorAll('.policy-modal');
+
+    // Open modal
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = trigger.getAttribute('data-modal-trigger');
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal functions
+    function closeModal(modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close button click
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modalId = button.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            closeModal(modal);
+        });
+    });
+
+    // Click outside to close
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (modal.classList.contains('active')) {
+                    closeModal(modal);
+                }
+            });
+        }
+    });
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            
+            // Only prevent default for internal links (those starting with #)
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+            // Phone links (tel:) will work normally
+        });
+    });
+});
+    
+    // Verify that sections exist
+    const sections = ['home', 'services-showcase', 'reviews', 'gallery', 'contact'];
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        console.log(`Section ${id} exists:`, !!section);
+    });
+});</script>
+<script src="smooth-scroll.js"></script>
 </body>
-</html>
+</html> 
